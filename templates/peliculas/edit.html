@@ -1,0 +1,50 @@
+{% extends 'admin/base.html' %}
+
+{% block title %} Editar Peliculas {% endblock %}
+
+{% block content %}
+
+<h1>Editar pelicula</h1>
+
+<form action="{{ url_for('pelicula.edit', id=pelicula.id) }}" method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="titulo" class="form-label">Titulo</label>
+        <input type="text" class="form-control" name="titulo" value="{{pelicula.titulo}}" required>
+    </div>
+    <div class="mb-3">
+        <label for="año" class="form-label">Año</label>
+        <input type="text" class="form-control" name="año" value="{{pelicula.año}}" required>
+    </div>
+    <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripcion</label>
+        <input type="text" class="form-control" name="descripcion" value="{{pelicula.descripcion}}" required>
+    </div>
+    <div class="mb-3">
+        <label for="idioma" class="form-label">Idioma</label>
+        <input type="text" class="form-control" name="idioma" value="{{pelicula.idioma}}" required>
+    </div>
+    <div class="mb-3">
+        <label for="precio" class="form-label">Precio</label>
+        <input type="number" class="form-control" name="precio" min="0" step="0.01" value="{{pelicula.precio}}" required>
+    </div>
+    <div class="mb-3">
+        <label for="imagen" class="form-label">Imagen</label>
+        {% if pelicula.imagen %}
+            <div>
+                <img src="{{ url_for('static', filename=pelicula.imagen) }}" alt="Imagen Actual" style="width: 100px; height: auto;">
+            </div>
+        {% endif %}
+        <input type="file" class="form-control" name="imagen">
+    </div>
+    <div class="mb-3">
+        <select name="genero_id" class="form-control" required>
+            <option value="">Seleccione un genero</option>
+            {% for genero in generos %}
+                <option value="{{genero.id}}" {% if genero.id == pelicula.genero_id %} selected {% endif %}>{{genero.genero}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Editar pelicula</button>
+</form>
+
+{% endblock %}

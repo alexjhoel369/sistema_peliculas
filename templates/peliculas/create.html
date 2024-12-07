@@ -1,0 +1,45 @@
+{% extends 'admin/base.html' %}
+
+{% block title %} Crear Peliculas {% endblock %}
+
+{% block content %}
+
+<h1>Crear nueva pelicula</h1>
+
+<form action="{{ url_for('pelicula.create') }}" method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="titulo" class="form-label">Titulo</label>
+        <input type="text" class="form-control" name="titulo" required>
+    </div>
+    <div class="mb-3">
+        <label for="año" class="form-label">Año</label>
+        <input type="text" class="form-control" name="año" required>
+    </div>
+    <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripcion</label>
+        <input type="text" class="form-control" name="descripcion" required>
+    </div>
+    <div class="mb-3">
+        <label for="idioma" class="form-label">Idioma</label>
+        <input type="text" class="form-control" name="idioma" required>
+    </div>
+    <div class="mb-3">
+        <label for="precio" class="form-label">Precio</label>
+        <input type="number" class="form-control" name="precio" min="0"step="0.01" required>
+    </div>
+    <div class="mb-3">
+        <label for="imagen" class="form-label">Imagen</label>
+        <input type="file" class="form-control" name="imagen">
+    </div>
+    <div class="mb-3">
+        <label for="genero_id" class="form-label">Genero</label>
+        <select class="form-control" name="genero_id" required>
+            {% for genero in generos %}
+                <option value="{{ genero.id }}">{{ genero.genero }}</option>
+            {% endfor %}
+        </select>        
+    </div>
+    <button type="submit" class="btn btn-primary">Crear pelicula</button>
+</form>
+
+{% endblock %}

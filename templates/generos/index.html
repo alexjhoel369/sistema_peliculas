@@ -1,0 +1,32 @@
+{% extends 'admin/base.html'%}
+
+
+{% block title %} GENEROS {% endblock %}
+
+{% block content %}
+
+<h1>Lista de generos</h1>
+
+<a href="{{ url_for('genero.create') }}" class="btn btn-success mb-3">Nuevo</a>
+
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Generos</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for item in generos%}
+    <tr>
+        <td>{{item.id}}</td>
+        <td>{{item.genero}}</td>
+        <td>
+            <a href="{{ url_for('genero.edit', id=item.id) }}" class="btn btn-warning">Editar</a>
+        </td>
+        <td>
+            <a href="{{ url_for('genero.delete', id=item.id) }}" class="btn btn-danger">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

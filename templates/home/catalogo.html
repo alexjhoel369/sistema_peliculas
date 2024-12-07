@@ -1,0 +1,36 @@
+{% extends "cliente/base.html" %}
+
+{% block title %}Catálogo de Películas{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center my-4">Catálogo de Películas</h1>
+    <div class="row">
+        {% for pelicula in peliculas %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                {% if pelicula.imagen %}
+                <!-- Mostrar imagen de la película -->
+                <img 
+                    src="{{ url_for('static', filename='uploads/' + pelicula.imagen.split('/')[-1]) }}" 
+                    class="card-img-top" 
+                    alt="Imagen de {{ pelicula.titulo }}">
+                {% else %}
+                <!-- Mostrar imagen por defecto si no hay imagen -->
+                <img 
+                    src="{{ url_for('static', filename='images/default_movie.jpg') }}" 
+                    class="card-img-top" 
+                    alt="Imagen por defecto">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ pelicula.titulo }}</h5>
+                    <p class="card-text">{{ pelicula.descripcion }}</p>
+                    <p class="text-primary">Idioma: {{ pelicula.idioma }}</p>
+                    <p class="text-primary">Precio: ${{ pelicula.precio }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

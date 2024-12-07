@@ -1,0 +1,17 @@
+{% extends 'admin/base.html' %}
+
+{% block title %} GENEROS | EDIT {% endblock %}
+
+{% block content %} 
+
+<h1>Actualizar genero</h1>
+
+<form action="{{ url_for('genero.edit', id=genero.id) }}" method="POST">
+    <div class="mb-3">
+        <label for="" class="form-label">Generos</label>
+        <input type="text" class="form-control" name="genero" value="{{ genero.genero }}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Registrar genero</button>
+</form>
+
+{% endblock %}
