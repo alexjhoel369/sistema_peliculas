@@ -32,3 +32,26 @@ def create():
     peliculas = Pelicula.query.all()
 
     return venta_view.create(usuarios, peliculas)
+
+@venta_bp.route("/edit/<int:id>", methods=['GET','POST'])
+def edit(id):
+    venta = Venta.get_by_id(id)
+    if request.method == 'POST':
+        usuario_id = request.form['usuario_id']
+        pelicula_id = request.form['pelicula_id']
+        fecha_str = request.form['fecha']        
+
+        fecha = datetime.strptime(fecha_str,'%Y-%m-%d').date()
+        #ACTUALIZANDO
+        venta.update(usuario_id=usuario_id,pelicula_id=pelicula_id,fecha=fecha)
+        return redirect(url_for('venta.index'))
+    
+    usuarios = Usuario.query.all()
+    peliculas = Pelicula.query.all()
+    return venta_view.edit(venta,usuarios,peliculas)
+
+@venta_bp.route("/delete/<int:id>")
+def delete(id):
+    venta = Venta.get_by_id(id)
+    venta.delete()
+    return redirect(url_for('venta.index'))
