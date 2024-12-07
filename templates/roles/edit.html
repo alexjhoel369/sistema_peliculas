@@ -1,0 +1,17 @@
+{% extends 'admin/base.html' %}
+
+{% block title %} ROLES | EDIT {% endblock %}
+
+{% block content %} 
+
+<h1>Actualizar rol</h1>
+
+<form action="{{ url_for('rol.edit', id=rol.id) }}" method="POST">
+    <div class="mb-3">
+        <label for="" class="form-label">Roles</label>
+        <input type="text" class="form-control" name="rol" value="{{ rol.rol }}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Registrar usuario</button>
+</form>
+
+{% endblock %}

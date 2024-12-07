@@ -1,0 +1,37 @@
+{% extends 'admin/base.html' %}
+
+{% block title %} VENTAS | CREATE {% endblock %}
+
+{% block content %}
+
+<h1>Registro de una venta</h1>
+
+<form action="{{ url_for('venta.create') }}" method="POST">
+    <div class="mb-3">
+        <label for="usuario_id" class="form-label">usuario</label>
+        <select name="usuario_id" class="form-control" required>
+            <option value="">Seleccione un usuario</option>
+            {% for usuario in usuarios %}
+                <option value="{{ usuario.id }}">{{ usuario.nombre }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="pelicula_id" class="form-label">pelicula</label>
+        <select name="pelicula_id" id="pelicula_id" class="form-control" required>
+            <option value="">Seleccione un pelicula</option>
+            {% for pelicula in peliculas %}
+                <option value="{{ pelicula.id }}">{{ pelicula.titulo }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="fecha" class="form-label">Fecha</label>
+        <input type="date" id="fecha" class="form-control" name="fecha" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar venta</button>
+
+</form>
+
+{% endblock %}

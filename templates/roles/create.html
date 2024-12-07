@@ -1,0 +1,17 @@
+{% extends 'admin/base.html' %}
+
+{% block title %} ROLES | CREATE {% endblock %}
+
+{% block content %} 
+
+<h1>Actualizar rol</h1>
+
+<form action="{{ url_for('rol.create') }}" method="POST">
+    <div class="mb-3">
+        <label for="" class="form-label">Rol</label>
+        <input type="text" class="form-control" name="rol" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Registrar rol</button>
+</form>
+
+{% endblock %}

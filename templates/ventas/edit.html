@@ -1,0 +1,38 @@
+{% extends 'admin/base.html' %}
+
+{% block title %} VENTAS | EDITAR {%endblock%}
+
+{%block content%} 
+
+<h1>Actualizacion de una venta</h1>
+
+<form action="{{ url_for('venta.edit', id=venta.id)}}"method = "POST">
+    <div class="mb-3">
+        <label for="" class="form-label">Usuario</label>
+        <select name="usuario_id" name="usuario_id" class="form-control" required>
+            <option value="">Seleccione un usuario</option>
+            {% for usuario in usuarios %}
+                <option value="{{usuario.id}}" {% if usuario.id == venta.usuario_id %}
+                selected{% endif %}>{{usuario.nombre}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <select name="pelicula_id" class="form-control" required>
+            <option value="">Seleccione una pelicula</option>
+            {% for pelicula in peliculas %}
+                <option value="{{pelicula.id}}" {% if pelicula.id == venta.pelicula_id %}
+                selected{% endif %}>{{pelicula.titulo}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Fecha</label>
+        <input type="date" class="form-control" name="fecha" value="{{venta.fecha.strftime('%Y-%m-%d')}}" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Actualizar pelicula</button>
+
+</form>
+
+{%endblock%}
