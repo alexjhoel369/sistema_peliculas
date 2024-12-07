@@ -8,7 +8,7 @@ class Venta(db.Model):
     pelicula_id = db.Column(db.Integer, db.ForeignKey('peliculas.id'),nullable=False)
     fecha = db.Column(db.DateTime,nullable=False)
 
-    # Relacion con la tabla Usuarios y Peluculas
+    # Relacion con la tabla Usuarios y Pelucula
     usuario = db.relationship('Usuario', back_populates='ventas')
     pelicula = db.relationship('Pelicula',back_populates='ventas')
 

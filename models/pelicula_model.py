@@ -24,7 +24,7 @@ class Pelicula(db.Model):
     imagen = db.Column(db.String(255), nullable=True) 
     genero_id = db.Column(db.Integer, db.ForeignKey('generos.id'), nullable=False)
 
-    # Relación con la tabla Genero
+    # Relación con la tabla Generos
     genero = db.relationship('Genero', back_populates='peliculas')
     ventas = db.relationship('Venta', back_populates='pelicula')
 

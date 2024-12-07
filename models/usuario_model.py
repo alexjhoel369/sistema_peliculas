@@ -14,7 +14,7 @@ class Usuario(db.Model):
     fecha = db.Column(db.DateTime, nullable=False)
     rol_id = db.Column(db.Integer, db.ForeignKey('roles.id'), nullable=False)  # Corregido
 
-    # Relación con la tabla Rol
+    # Relación con la tabla Roles
     rol = db.relationship('Rol', back_populates='usuarios')
     ventas = db.relationship('Venta', back_populates='usuario')
 

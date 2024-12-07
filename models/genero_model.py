@@ -6,7 +6,7 @@ class Genero(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     genero = db.Column(db.String(80), nullable=False)
     
-    # Relación con la tabla Usuario
+    # Relación con la tabla Usuarios
     peliculas = db.relationship('Pelicula', back_populates='genero')
 
     def __init__(self, genero):
