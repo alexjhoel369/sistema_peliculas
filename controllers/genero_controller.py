@@ -31,7 +31,7 @@ def edit(id):
     if request.method == 'POST':
         nuevo_genero = request.form['genero']  
 
-        # ACTUALIZAR el genero en la base de datos
+        # ACTUALIZANDO el genero en la base de datos
         genero.update(genero=nuevo_genero)  
         return redirect(url_for('genero.index'))  
 

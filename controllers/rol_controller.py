@@ -31,7 +31,7 @@ def edit(id):
     if request.method == 'POST':
         nuevo_rol = request.form['rol']  
 
-        # ACTUALIZAR el rol en la base de datos
+        # ACTUALIZANDO el rol en la base de datos
         rol.update(rol=nuevo_rol)  
         return redirect(url_for('rol.index'))  
 

@@ -11,7 +11,7 @@ venta_bp = Blueprint ('venta', __name__,url_prefix="/ventas")
 
 @venta_bp.route("/")
 def index():
-    #recupera todos los registros de ventas
+    #recuperar todos los registros de ventas
     ventas = Venta.get_all()
     return venta_view.list(ventas)
 

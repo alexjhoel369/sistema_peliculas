@@ -9,7 +9,7 @@ pelicula_bp = Blueprint('pelicula', __name__, url_prefix="/peliculas")
 
 @pelicula_bp.route("/")
 def index():
-    # Recupera todos los registros de películas
+    # Recuperar todos los registros de películas
     peliculas = Pelicula.get_all()
     return pelicula_view.list(peliculas)
 
