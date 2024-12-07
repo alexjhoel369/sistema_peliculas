@@ -6,4 +6,4 @@ app = create_app()
 
 @app.route('/')
 def index():
-    return '¡Como estas!'
+    return '¡Como estan todos!'
