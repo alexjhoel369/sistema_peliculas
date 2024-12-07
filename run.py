@@ -10,3 +10,11 @@ from controllers import venta_controller
 from controllers import home_controller
 from controllers import admin_controller
 from controllers import auth_controller
+#-----------------------------------------------------
+
+from database import db
+
+app = Flask(__name__)
+app.config["SECRET_KEY"] = "miclavesecreta"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///sistema_peliculas.db"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
