@@ -1,4 +1,4 @@
-from flask import Flask,request,redirect,url_for
+from flask import Flask,request
 import os
 #----------------admin-------------------------------
 from controllers import usuario_controller
@@ -6,9 +6,11 @@ from controllers import rol_controller
 from controllers import genero_controller
 from controllers import pelicula_controller
 from controllers import venta_controller
+
 #----------------principal----------------------------
 from controllers import home_controller
 from controllers import admin_controller
+from controllers import client_controller
 from controllers import auth_controller
 #-----------------------------------------------------
 
@@ -36,8 +38,9 @@ app.register_blueprint(venta_controller.venta_bp)
 
 #-----------------------------------------------------
 app.register_blueprint(home_controller.home_bp)
-app.register_blueprint(auth_controller.auth_bp)
+app.register_blueprint(client_controller.client_bp)
 app.register_blueprint(admin_controller.admin_bp)
+app.register_blueprint(auth_controller.auth_bp)
 
 #-----------------------------------------------------
 
