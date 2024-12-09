@@ -1,0 +1,26 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Dashboard - Admin{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h1 class="text-center">Bienvenido al Panel de Administración</h1>
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <a href="{{ url_for('admin.roles') }}" class="btn btn-primary w-100">Gestionar Roles</a>
+    </div>
+    <div class="col-md-4">
+      <a href="{{ url_for('admin.usuarios') }}" class="btn btn-primary w-100">Gestionar Usuarios</a>
+    </div>
+    <div class="col-md-4">
+      <a href="{{ url_for('admin.generos') }}" class="btn btn-primary w-100">Gestionar Géneros</a>
+    </div>
+    <div class="col-md-4 mt-3">
+      <a href="{{ url_for('admin.peliculas') }}" class="btn btn-primary w-100">Gestionar Películas</a>
+    </div>
+    <div class="col-md-4 mt-3">
+      <a href="{{ url_for('admin.ventas') }}" class="btn btn-primary w-100">Gestionar Ventas</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
