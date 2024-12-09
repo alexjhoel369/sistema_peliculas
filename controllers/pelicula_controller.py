@@ -23,9 +23,9 @@ def create():
         idioma = request.form['idioma']
         precio = request.form['precio']
         genero_id = request.form['genero_id']
-        file = request.files.get('imagen')  # Obtener el archivo de imagen
+        file = request.files.get('imagen')  # Obtenemos el archivo de imagen
 
-        # Guardar la película con la imagen
+        # Guardamos la película con la imagen
         pelicula = Pelicula(titulo, año, descripcion, idioma, precio, genero_id)
         pelicula.save(file=file, upload_folder=current_app.config['UPLOAD_FOLDER'])
         return redirect(url_for('pelicula.index'))
@@ -43,7 +43,7 @@ def edit(id):
         idioma = request.form['idioma']
         precio = request.form['precio']
         genero_id = request.form['genero_id']
-        file = request.files.get('imagen')  # Obtener el archivo de imagen (si se actualiza)
+        file = request.files.get('imagen')  # Obtenemos el archivo de imagen (si se actualiza)
 
         # Actualizar la película con los nuevos datos
         pelicula.update(
