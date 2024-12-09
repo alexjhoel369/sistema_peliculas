@@ -9,7 +9,7 @@ pelicula_bp = Blueprint('pelicula', __name__, url_prefix="/peliculas")
 
 @pelicula_bp.route("/")
 def index():
-    # Recuperando todos los registros de películas
+    # Recupera todos los registros de películas
     peliculas = Pelicula.get_all()
     return pelicula_view.list(peliculas)
 
@@ -23,15 +23,16 @@ def create():
         idioma = request.form['idioma']
         precio = request.form['precio']
         genero_id = request.form['genero_id']
-        file = request.files.get('imagen')  # Obtenemos el archivo de imagen
+        file = request.files.get('imagen')  # Obtener el archivo de imagen
 
-        # Guardamos la película con la imagen
+        # Guardar la película con la imagen
         pelicula = Pelicula(titulo, año, descripcion, idioma, precio, genero_id)
         pelicula.save(file=file, upload_folder=current_app.config['UPLOAD_FOLDER'])
         return redirect(url_for('pelicula.index'))
     
     generos = Genero.query.all()
     return pelicula_view.create(generos)
+
 
 @pelicula_bp.route("/edit/<int:id>", methods=['GET', 'POST'])
 def edit(id):
@@ -43,7 +44,7 @@ def edit(id):
         idioma = request.form['idioma']
         precio = request.form['precio']
         genero_id = request.form['genero_id']
-        file = request.files.get('imagen')  # Obtenemos el archivo de imagen (si se actualiza)
+        file = request.files.get('imagen')  # Obtener el archivo de imagen (si se actualiza)
 
         # Actualizar la película con los nuevos datos
         pelicula.update(
