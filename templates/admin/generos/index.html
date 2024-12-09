@@ -7,26 +7,29 @@
 
 <h1>Lista de generos</h1>
 
-<a href="{{ url_for('genero.create') }}" class="btn btn-success mb-3">Nuevo</a>
+<a href="{{ url_for('genero.create') }}" class="btn btn-success mb-3">Nuevo genero</a>
 
-<table class="table table-striped">
-    <tr>
-        <th>ID</th>
-        <th>Generos</th>
-        <th></th>
-        <th></th>
-    </tr>
-    {% for item in generos%}
-    <tr>
-        <td>{{item.id}}</td>
-        <td>{{item.genero}}</td>
-        <td>
-            <a href="{{ url_for('genero.edit', id=item.id) }}" class="btn btn-warning">Editar</a>
-        </td>
-        <td>
-            <a href="{{ url_for('genero.delete', id=item.id) }}" class="btn btn-danger">Eliminar</a>
-        </td>
-    </tr>
-    {% endfor %}
+<table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Generos</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for item in generos%}
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.genero}}</td>
+            <td>
+                <a href="{{ url_for('genero.edit', id=item.id) }}" class="btn btn-warning">Editar</a>
+                <a href="{{ url_for('genero.delete', id=item.id) }}" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
 </table>
 {% endblock %}
