@@ -1,45 +1,45 @@
-{% extends "cliente/base.html" %}
+{% extends "home/base.html" %}
 
 {% block title %}Películas por Género{% endblock %}
 
 {% block content %}
 <div class="container">
-    <h1 class="text-center my-4">Películas por Género</h1>
-    <form method="get" action="{{ url_for('home.generos') }}">
-        <div class="mb-3">
-            <label for="genero_id" class="form-label">Selecciona un género:</label>
-            <select class="form-select" id="genero_id" name="genero_id">
-                <option value="">-- Seleccionar --</option>
-                {% for genero in generos %}
-                <option value="{{ genero.id }}">{{ genero.genero }}</option>
-                {% endfor %}
-            </select>
+    <h1 class="text-center my-4 text-light">Películas por Género</h1>
+
+    <form method="get" action="{{ url_for('home.generos') }}" class="mb-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <label for="genero_id" class="form-label text-light">Selecciona un género:</label>
+                <select class="form-select bg-dark text-light border-light" id="genero_id" name="genero_id">
+                    <option value="">-- Seleccionar --</option>
+                    {% for genero in generos %}
+                    <option value="{{ genero.id }}">{{ genero.genero }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-2 d-flex align-items-end">
+                <button type="submit" class="btn btn-primary">Filtrar</button>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary">Filtrar</button>
     </form>
 
-    <div class="row mt-4">
+    <div class="movie-grid">
         {% for pelicula in peliculas %}
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
+        <div class="movie-card">
+            <div class="movie-image">
                 {% if pelicula.imagen %}
-                <!-- Mostrar imagen de la película -->
-                <img 
-                    src="{{ url_for('static', filename='uploads/' + pelicula.imagen.split('/')[-1]) }}" 
-                    class="card-img-top" 
+
+                <img src="{{ url_for('static', filename='uploads/' + pelicula.imagen.split('/')[-1]) }}"
                     alt="Imagen de {{ pelicula.titulo }}">
                 {% else %}
-                <!-- Mostrar imagen por defecto si no hay imagen -->
-                <img 
-                    src="{{ url_for('static', filename='images/default_movie.jpg') }}" 
-                    class="card-img-top" 
-                    alt="Imagen por defecto">
+
+                <img src="{{ url_for('static', filename='images/default_movie.jpg') }}" alt="Imagen por defecto">
                 {% endif %}
-                <div class="card-body">
-                    <h5 class="card-title">{{ pelicula.titulo }}</h5>
-                    <p class="card-text">{{ pelicula.descripcion }}</p>
-                    <p class="text-muted">Idioma: {{ pelicula.idioma }}</p>
-                    <p class="text-primary">Precio: ${{ pelicula.precio }}</p>
+                <div class="movie-info">
+                    <h5>{{ pelicula.titulo }}</h5>
+                    <p>{{ pelicula.descripcion }}</p>
+                    <p><span class="text-info">Idioma:</span> {{ pelicula.idioma }}</p>
+                    <p><span class="text-warning">Precio:</span> ${{ pelicula.precio|round(2) }}</p>
                 </div>
             </div>
         </div>

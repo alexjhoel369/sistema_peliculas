@@ -1,31 +1,31 @@
-{% extends "cliente/base.html" %}
+{% extends "home/base.html" %}
 
-{% block title %} PELICULAS {% endblock %}
+{% block title %}PELÍCULAS{% endblock %}
 
 {% block content %}
 <div class="container">
-    <h1 class="text-center my-4">Lista de Películas</h1>
-    <div class="row">
+    <h1 class="text-center my-4 text-light">Lista de Películas</h1>
+
+    <div class="movie-grid">
         {% for pelicula in peliculas %}
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
+        <div class="movie-card">
+            <div class="movie-image">
                 {% if pelicula.imagen %}
-                <img src="{{ url_for('static', filename='uploads/' + pelicula.imagen) }}" class="card-img-top"
+                <img src="{{ url_for('static', filename='uploads/' + pelicula.imagen.split('/')[-1]) }}"
                     alt="Imagen de {{ pelicula.titulo }}">
                 {% else %}
-                <img src="{{ url_for('static', filename='images/default_movie.jpg') }}" class="card-img-top"
-                    alt="Imagen por defecto">
+                <img src="{{ url_for('static', filename='images/default_movie.jpg') }}" alt="Imagen por defecto">
                 {% endif %}
-
-                <div class="card-body">
-                    <h5 class="card-title">{{ pelicula.titulo }}</h5>
-                    <p class="card-text">{{ pelicula.descripcion }}</p>
-                    <p class="text-primary">Idioma: {{ pelicula.idioma }}</p>
-                    <p class="text-primary">Precio: ${{ pelicula.precio }}</p>
-                    <p class="text-success">Género: {{ pelicula.genero.genero }}</p>
-                </div>
+            </div>
+            <div class="movie-info">
+                <h5>{{ pelicula.titulo }}</h5>
+                <p>{{ pelicula.descripcion }}</p>
+                <p><span class="text-info">Idioma:</span> {{ pelicula.idioma }}</p>
+                <p><span class="text-warning">Precio:</span> ${{ pelicula.precio|round(2) }}</p>
             </div>
         </div>
+        {% else %}
+        <p class="text-center text-light mt-4">No hay películas disponibles.</p>
         {% endfor %}
     </div>
 </div>
