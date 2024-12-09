@@ -1,26 +1,39 @@
-from flask import Blueprint, render_template, session, redirect, url_for, flash
-from functools import wraps
-from models.usuario_model import Usuario
+from flask import Blueprint, redirect, url_for, session, flash
+from views.admin_view import render_dashboard
+from .auth_controller import login_required
 
 admin_bp = Blueprint("admin", __name__, url_prefix="/admin")
 
-def admin_required(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        user_id = session.get("user_id")
-        if not user_id:
-            flash("Debes iniciar sesión para acceder a esta página.", "warning")
-            return redirect(url_for("auth.login"))
-        
-        usuario = Usuario.query.get(user_id)
-        if usuario.rol_id != 1:  
-            flash("No tienes permiso para acceder a esta página.", "danger")
-            return redirect(url_for("home.index"))
-        
-        return f(*args, **kwargs)
-    return decorated_function
+@admin_bp.before_request
+@login_required
+def verificar_acceso():
+    # Verificar si el usuario es administrador (rol_id == 1)
+    if session.get("user_role") != 1:
+        flash("Acceso denegado. Debes ser admin para acceder caiman.", "danger")
+        return redirect(url_for("auth.login"))
 
-@admin_bp.route("/dashboard")
-@admin_required
+# Ruta principal del dashboard
+@admin_bp.route("/")
 def dashboard():
-    return render_template("admin/base.html") 
+    return render_dashboard()
+
+# Rutas (redirigen a sus respectivos blueprints)
+@admin_bp.route("/roles/")
+def roles():
+    return redirect(url_for("rol.index"))
+
+@admin_bp.route("/usuarios/")
+def usuarios():
+    return redirect(url_for("usuario.index"))
+
+@admin_bp.route("/generos/")
+def generos():
+    return redirect(url_for("genero.index"))
+
+@admin_bp.route("/peliculas/")
+def peliculas():
+    return redirect(url_for("pelicula.index"))
+
+@admin_bp.route("/ventas/")
+def ventas():
+    return redirect(url_for("venta.index"))
