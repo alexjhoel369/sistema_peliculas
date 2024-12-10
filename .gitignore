@@ -1,6 +1,3 @@
 # Ignorar archivos compilados de Python
 __pycache__/
 *.pyc
-
-# Ignorar bases de datos locales
-*.db
