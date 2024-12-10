@@ -457,3 +457,36 @@ box-shadow: 0 0 15px rgba(200, 200, 255, 0.4),
     transform: scale(1.1);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   }
+
+  /*==========DISEÑO DE CATALOGO==========*/
+/* Estilo general */
+.category {
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(145deg, #1a0707, #4b0505);
+  transition: transform 0.3s ease;
+}
+
+.category:hover {
+  transform: translateY(-5px);
+}
+
+/* Encabezado de la categoría */
+.category-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-left: 10px solid #9b5506;
+  background: #070101;
+  border-radius: 5px;
+}
+
+.category-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+  margin-left: 15px;
+  text-transform: uppercase;
+}
