@@ -4,7 +4,26 @@
 
 {% block content %}
 <div class="container">
-    <h1 class="text-center my-4 text-light">Catálogo de Películas</h1>
+    <!-- Formulario de búsqueda -->
+    <div class="text-center mt-4">
+        <form class="search-bar mx-auto" action="{{ url_for('client.buscar') }}" method="GET" style="max-width: 500px;">
+            <div class="input-group">
+                <input type="text" class="form-control form-control-lg shadow" name="q" placeholder="Buscar películas..." aria-label="Buscar películas..." required>
+                <button class="btn btn-lg btn-primary shadow" type="submit">
+                    <i class="fas fa-search"></i> Buscar
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Título de la página con el resultado de búsqueda -->
+    {% if query %}
+        <h2 class="text-center text-light mt-4">Resultados de búsqueda para "{{ query }}"</h2>
+    {% else %}
+        <h1 class="text-center my-4 text-light">Catálogo de Películas</h1>
+    {% endif %}
+
+    <!-- Mostrar las películas -->
     <div class="movie-grid">
         {% for pelicula in peliculas %}
         <div class="movie-card">
@@ -26,6 +45,8 @@
                 </form>
             </div>
         </div>
+        {% else %}
+        <p class="text-center text-light mt-4">No se encontraron películas que coincidan con tu búsqueda.</p>
         {% endfor %}
     </div>
 </div>

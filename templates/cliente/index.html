@@ -3,6 +3,24 @@
 {% block title %}PELÍCULAS{% endblock %}
 
 {% block content %}
+<div class="text-center mt-5">
+    <!-- Título principal -->
+    <h1 class="display-1 text-gradient">Películas Plus+</h1>
+    <p class="lead">Encuentra las mejores películas aquí.</p>
+
+    <!-- Buscador de películas -->
+    <form class="search-bar mx-auto mt-4" action="{{ url_for('client.buscar') }}" method="GET"
+        style="max-width: 500px;">
+        <div class="input-group">
+            <input type="text" class="form-control form-control-lg shadow" name="q" placeholder="Buscar películas..."
+                aria-label="Buscar películas..." required>
+            <button class="btn btn-lg btn-primary shadow" type="submit">
+                <i class="fas fa-search"></i> Buscar
+            </button>
+        </div>
+    </form>
+
+</div>
 <div class="container">
     <h1 class="text-center my-4 text-light">Lista de Películas</h1>
     <div class="movie-grid">

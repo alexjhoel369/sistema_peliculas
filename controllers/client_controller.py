@@ -23,12 +23,22 @@ def index():
     # Pasamos 'peliculas' al template
     return render_template("cliente/index.html", peliculas=peliculas)
 
-@client_bp.route("/catalogo")
+@client_bp.route('/catalogo')
 def catalogo():
-    peliculas = Pelicula.query.all()
-    if not peliculas:
-        peliculas = []
-    return render_template("cliente/catalogo.html", peliculas=peliculas)
+    peliculas = Pelicula.get_all()
+    return render_template('cliente/catalogo.html', peliculas=peliculas)
+
+@client_bp.route('/buscar', methods=['GET'])
+def buscar():
+    query = request.args.get('q', '').strip().lower()
+    peliculas = []
+
+    if query:
+        peliculas = Pelicula.query.filter(
+            Pelicula.titulo.ilike(f'%{query}%')
+        ).all()
+
+    return render_template('cliente/catalogo.html', peliculas=peliculas, query=query)
 
 @client_bp.route("/generos")
 def generos():
