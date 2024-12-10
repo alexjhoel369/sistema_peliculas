@@ -5,7 +5,7 @@
 {% block content %}
 <div class="text-center mt-5">
     <!-- Título principal -->
-    <h1 class="display-1 text-gradient">Películas Plus+</h1>
+    <h1 class="display-1 text-gradient">Repelis Plus+</h1>
     <p class="lead">Encuentra las mejores películas aquí.</p>
 
     <!-- Buscador de películas -->
@@ -20,34 +20,19 @@
         </div>
     </form>
 
-</div>
-<div class="container">
-    <h1 class="text-center my-4 text-light">Lista de Películas</h1>
-    <div class="movie-grid">
-        {% for pelicula in peliculas %}
-        <div class="movie-card">
-            <div class="movie-image">
-                {% if pelicula.imagen %}
-                <img src="{{ url_for('static', filename='uploads/' + pelicula.imagen) }}" alt="{{ pelicula.titulo }}">
-                {% else %}
-                <img src="{{ url_for('static', filename='images/default_movie.jpg') }}" alt="Imagen por defecto">
-                {% endif %}
-            </div>
-            <div class="movie-info">
-                <h5>{{ pelicula.titulo }}</h5>
-                <p>{{ pelicula.descripcion }}</p>
-                <p><span class="text-info">Idioma:</span> {{ pelicula.idioma }}</p>
-                <p><span class="text-warning">Precio:</span> ${{ pelicula.precio|round(2) }}</p>
-                <!-- Botón de compra -->
-                <form action="{{ url_for('venta.create_from_index') }}" method="POST">
-                    <input type="hidden" name="pelicula_id" value="{{ pelicula.id }}">
-                    <button type="submit" class="btn btn-danger">Comprar</button>
-                </form>
-            </div>
+    <div class="hero">
+        <div class="hero-content">
+          <h1 class="hero-title">¡Bienvenido a RepelisPlus+!</h1>
+          <p class="hero-description">
+            Descubre un mundo de entretenimiento como nunca antes lo imaginaste. En **RepelisPlus+**, encontrarás una selección curada de las mejores películas y series para disfrutar en la comodidad de tu hogar.  
+            Nuestra misión es ofrecerte una experiencia única, llena de emociones, aventuras, y momentos inolvidables.  
+            Únete a nuestra comunidad y accede a contenido de alta calidad, recomendaciones personalizadas y un servicio pensado para ti.
+            ¿Por qué elegirnos? Porque nos preocupamos por brindarte lo mejor. Con una interfaz intuitiva y una biblioteca en constante crecimiento, **RepelisPlus+** se convierte en el compañero ideal para tus maratones cinematográficos.
+          </p>
+          <p class="hero-description">
+            Así que, si buscas las últimas novedades, los clásicos más icónicos o simplemente algo diferente para relajarte, estás en el lugar indicado. ¡Deja que comience la diversión y explora lo que tenemos para ti!
+          </p>
+          <a href="{{ url_for('home.catalogo') }}" class="btn-cta">Comencemos con RepelisPlus+</a>
         </div>
-        {% else %}
-        <p class="text-light text-center">No hay películas disponibles.</p>
-        {% endfor %}
     </div>
-</div>
 {% endblock %}

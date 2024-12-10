@@ -245,7 +245,7 @@ p {
 /*=====================*/
 .navbar-nav {
   justify-content: center;
-  width: 90%;
+  width: 88%;
 }  
 /*=====================*/
 /* Efecto LED en los enlaces de navegación */
@@ -266,8 +266,8 @@ p {
 
 /* Efecto especial para enlaces activos */
 .navbar-nav .nav-link.active {
-  color: #28a745; /* Color diferente para el enlace activo */
-  text-shadow: 0 0 10px #28a745, 0 0 20px #2ecc71, 0 0 30px #28a745;
+  color: #a72839; /* Color diferente para el enlace activo */
+  text-shadow: 0 0 10px #a72828, 0 0 20px #cc2e2e, 0 0 30px #28a745;
 }
 
 /* Animación de luz al pasar el mouse */
@@ -297,7 +297,7 @@ p {
 /* Estilo para el buscador */
 .search-bar .form-control {
   border-radius: 25px 0 0 25px;
-  border: 2px solid #3498db;
+  border: 2px solid #410707;
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
@@ -308,15 +308,15 @@ p {
 
 .search-bar .btn {
   border-radius: 0 25px 25px 0;
-  background-color: #3498db;
-  border: 2px solid #3498db;
+  background-color: #380707b2;
+  border: 2px solid #641010;
   color: white;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .search-bar .btn:hover {
-  background-color: #8e44ad;
-  border-color: #8e44ad;
+  background-color: #5a2121;
+  border-color: #5a2626;
   box-shadow: 0 0 10px rgba(142, 68, 173, 0.5);
 }
 
@@ -326,7 +326,7 @@ p {
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd, #c2e9fb);
+  background: linear-gradient(270deg, #140101, #2b0101, #1d0101, #180101, #070000);
   background-size: 400% 400%;
   animation: fondoMovimiento 15s ease infinite;
   font-family: 'Poppins', sans-serif;
@@ -430,4 +430,51 @@ body {
 .social-circle:hover {
   transform: scale(1.1);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Efecto de sombra al pasar el mouse */
+}
+
+/*==========ESTILO PARA DESCRICPCION Y BOTON HOME==========*/
+/* Hero Section */
+.hero {
+  background: linear-gradient(120deg, #050505 0%, #684c4c 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px 20px;
+  min-height: 100vh;
+  color: #ffffff9c;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.btn-cta {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background: #580e0e;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-cta:hover {
+  background: #6b2020;
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
