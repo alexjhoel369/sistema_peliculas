@@ -3,7 +3,7 @@
 {% block title %}Catálogo de Películas{% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container mt-5">
     <!-- Formulario de búsqueda -->
     <div class="text-center mt-4">
         <form class="search-bar mx-auto" action="{{ url_for('client.buscar') }}" method="GET" style="max-width: 500px;">
@@ -17,11 +17,15 @@
     </div>
 
     <!-- Título de la página con el resultado de búsqueda -->
-    {% if query %}
-        <h2 class="text-center text-light mt-4">Resultados de búsqueda para "{{ query }}"</h2>
-    {% else %}
-        <h1 class="text-center my-4 text-light">Catálogo de Películas</h1>
-    {% endif %}
+    <div class="category">
+        <div class="category-header">
+        {% if query %}
+        <h2 class="category-title">Resultados de búsqueda para "{{ query }}"</h2>
+        {% else %}
+        <h1 class="category-title">Peliculas Destacadas</h1>
+        {% endif %}
+        </div>
+    </div>    
 
     <!-- Mostrar las películas -->
     <div class="movie-grid">
