@@ -319,3 +319,115 @@ p {
   border-color: #8e44ad;
   box-shadow: 0 0 10px rgba(142, 68, 173, 0.5);
 }
+
+
+/*===========DISEÑO DE FONDO DE LA PAGINA==========*/
+/* Fondo animado para toda la página */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd, #c2e9fb);
+  background-size: 400% 400%;
+  animation: fondoMovimiento 15s ease infinite;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+}
+
+/* Animación de gradiente */
+@keyframes fondoMovimiento {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Asegurarse de que el contenido sea legible */
+.container {
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/*==========INTEGRANDO ESTILO DE PIE DE PAGINA==========*/
+/* Estilos generales del pie de página */
+.footer {
+  background-color: #1a1a1a;
+  color: #aaa;
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+.footer p {
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
+.footer .social-links {
+  margin-top: 10px;
+}
+
+.social-circle {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: #333;
+  color: #fff;
+  font-size: 18px;
+  line-height: 40px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.social-circle:hover {
+  background-color: #ff9a9e; /* Gradiente suave */
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Colores personalizados para cada red social */
+.social-circle.facebook:hover {
+  background-color: #3b5998;
+}
+
+.social-circle.instagram:hover {
+  background-color: #e4405f;
+}
+
+.social-circle.tiktok:hover {
+  background-color: #69c9d0;
+}
+
+.social-circle.youtube:hover {
+  background-color: #ff0000;
+}
+
+.social-circle.twitter:hover {
+  background-color: #1da1f2;
+}
+
+/*==========ESTILO PARA IMAGEN DE FONDO==========*/
+.social-circle {
+  display: inline-block;
+  width: 50px; /* Ajusta según el tamaño de tus imágenes */
+  height: 50px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: #333; /* Color base si no hay imagen */
+  background-size: cover; /* Ajusta la imagen para que llene el círculo */
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: 0.3s;
+}
+
+.social-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Efecto de sombra al pasar el mouse */
+}
