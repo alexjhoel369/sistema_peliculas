@@ -7,7 +7,7 @@
   <title>{%block title%} {%endblock%}</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/style/style_home.css">
+  <link rel="stylesheet" href="/static/style/style_home.css">
 </head>
 
 <body>
@@ -21,16 +21,28 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{{ url_for('home.index') }}">INICIO</a>
+            <a class="nav-link {% if request.path == '/' %}active{% endif %}"
+              href="{{ url_for('home.index') }}">INICIO</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if request.path == '/catalogo' %}active{% endif %}" href="{{ url_for('home.catalogo') }}">CATÁLOGO</a>
+            <a class="nav-link {% if request.path == '/catalogo' %}active{% endif %}"
+              href="{{ url_for('home.catalogo') }}">CATÁLOGO</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownGenero" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Géneros
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownGenero">
+              {% for genero in generos %}
+              <li><a class="dropdown-item" href="{{ url_for('home.generos', genero_id=genero.id) }}">{{ genero.genero
+                  }}</a></li>
+              {% endfor %}
+            </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if request.path == '/generos' %}active{% endif %}" href="{{ url_for('home.generos') }}">GÉNEROS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {% if request.path == '/login' %}active{% endif %}" href="{{ url_for('auth.login')}}">LOGIN</a>
+            <a class="nav-link {% if request.path == '/login' %}active{% endif %}"
+              href="{{ url_for('auth.login')}}">LOGIN</a>
           </li>
         </ul>
       </div>
@@ -43,14 +55,20 @@
   <footer class="footer">
     <div class="container text-center">
       <p>© 2024. REPELIS PLUS+. Todos los derechos reservados.</p>
-      <p>RepelisPlus+, así como todos los programas, títulos y logotipos, son propiedad de Tu RepelisPlus, sus afiliados y/o sus licenciadores.</p>
+      <p>RepelisPlus+, así como todos los programas, títulos y logotipos, son propiedad de Tu RepelisPlus, sus afiliados
+        y/o sus licenciadores.</p>
       <div class="social-links">
         <div class="social-links">
-          <a href="https://www.facebook.com" target="_blank" class="social-circle" title="Facebook" style="background-image: url('static/images/facebook.png');"></a>
-          <a href="https://www.instagram.com" target="_blank" class="social-circle" title="Instagram" style="background-image: url('static/images/instagram.png');"></a>
-          <a href="https://www.tiktok.com" target="_blank" class="social-circle" title="TikTok" style="background-image: url('static/images/tiktok.png');"></a>
-          <a href="https://www.youtube.com" target="_blank" class="social-circle" title="YouTube" style="background-image: url('static/images/youtube.png');"></a>
-          <a href="https://twitter.com" target="_blank" class="social-circle" title="Twitter" style="background-image: url('static/images/twitter.png');"></a>
+          <a href="https://www.facebook.com" target="_blank" class="social-circle" title="Facebook"
+            style="background-image: url('static/images/facebook.png');"></a>
+          <a href="https://www.instagram.com" target="_blank" class="social-circle" title="Instagram"
+            style="background-image: url('static/images/instagram.png');"></a>
+          <a href="https://www.tiktok.com" target="_blank" class="social-circle" title="TikTok"
+            style="background-image: url('static/images/tiktok.png');"></a>
+          <a href="https://www.youtube.com" target="_blank" class="social-circle" title="YouTube"
+            style="background-image: url('static/images/youtube.png');"></a>
+          <a href="https://twitter.com" target="_blank" class="social-circle" title="Twitter"
+            style="background-image: url('static/images/twitter.png');"></a>
         </div>
       </div>
     </div>
@@ -62,4 +80,3 @@
 </body>
 
 </html>
-

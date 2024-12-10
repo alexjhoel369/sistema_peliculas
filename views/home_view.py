@@ -13,3 +13,6 @@ def render_generos(generos, peliculas, genero_id):
         peliculas=peliculas,
         genero_id=genero_id
     )
+
+def render_catalogo(peliculas, query=None):
+    return render_template('home/catalogo.html', peliculas=peliculas, query=query)

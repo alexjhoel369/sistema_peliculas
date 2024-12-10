@@ -15,9 +15,19 @@ def index():
 @home_bp.route('/catalogo')
 def catalogo():
     peliculas = Pelicula.get_all()
-    if not peliculas:
-        peliculas = []
     return render_template('home/catalogo.html', peliculas=peliculas)
+
+@home_bp.route('/buscar', methods=['GET'])
+def buscar():
+    query = request.args.get('q', '').strip().lower()
+    peliculas = []
+
+    if query:
+        peliculas = Pelicula.query.filter(
+            Pelicula.titulo.ilike(f'%{query}%')
+        ).all()
+
+    return render_template('home/catalogo.html', peliculas=peliculas, query=query)
 
 
 @home_bp.route('/generos')
