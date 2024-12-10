@@ -34,13 +34,15 @@ def buscar():
 def generos():
     generos = Genero.get_all()  # Obtenemos todos los géneros
     genero_id = request.args.get('genero_id', type=int)
-
-    # Obtenemos películas según el género seleccionado
     peliculas = Pelicula.query.filter_by(genero_id=genero_id).all() if genero_id else []
-
     return render_template(
         'home/generos.html',
         generos=generos,
         peliculas=peliculas,
         genero_id=genero_id
     )
+
+@home_bp.app_context_processor
+def inject_generos():
+    generos = Genero.query.all()
+    return {'generos': generos}
