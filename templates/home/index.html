@@ -4,34 +4,39 @@
 
 {% block content %}
 <div class="text-center mt-5">
-    <!-- Título principal -->
-    <h1 class="display-1 text-gradient">Repelis Plus+</h1>
-    <p class="lead">Encuentra las mejores películas aquí.</p>
+  <!-- Título principal -->
+  <h1 class="display-1 text-gradient">Repelis Plus+</h1>
+  <p class="lead">Encuentra las mejores películas aquí.</p>
 
-    <!-- Buscador de películas -->
-    <form class="search-bar mx-auto mt-4" action="/buscar" method="GET" style="max-width: 500px;">
+  <!-- Buscador de películas -->
+  <form class="search-bar mx-auto mt-4" action="/buscar" method="GET" style="max-width: 500px;">
     <div class="input-group">
-        <input type="text" class="form-control form-control-lg shadow" name="q" placeholder="Buscar películas..." aria-label="Buscar películas..." required>
-        <button class="btn btn-lg btn-primary shadow" type="submit">
+      <input type="text" class="form-control form-control-lg shadow" name="q" placeholder="Buscar películas..."
+        aria-label="Buscar películas..." required>
+      <button class="btn btn-lg btn-primary shadow" type="submit">
         <i class="fas fa-search"></i> Buscar
-        </button>
+      </button>
     </div>
-    </form>
+  </form>
 </div>
 
 <div class="hero">
-    <div class="hero-content">
-      <h1 class="hero-title">¡Bienvenido a RepelisPlus+!</h1>
-      <p class="hero-description">
-        Descubre un mundo de entretenimiento como nunca antes lo imaginaste. En RepelisPlus+, encontrarás una selección curada de las mejores películas y series para disfrutar en la comodidad de tu hogar.  
-        Nuestra misión es ofrecerte una experiencia única, llena de emociones, aventuras, y momentos inolvidables.  
-        Únete a nuestra comunidad y accede a contenido de alta calidad, recomendaciones personalizadas y un servicio pensado para ti.
-        ¿Por qué elegirnos? Porque nos preocupamos por brindarte lo mejor. Con una interfaz intuitiva y una biblioteca en constante crecimiento, RepelisPlus+ se convierte en el compañero ideal para tus maratones cinematográficos.
-      </p>
-      <p class="hero-description">
-        Así que, si buscas las últimas novedades, los clásicos más icónicos o simplemente algo diferente para relajarte, estás en el lugar indicado. ¡Deja que comience la diversión y explora lo que tenemos para ti!
-      </p>
-      <a href="{{ url_for('home.catalogo') }}" class="btn-cta">Comencemos con RepelisPlus+</a>
-    </div>
+  <div class="hero-content">
+    <h1 class="hero-title">¡Bienvenido a RepelisPlus+!</h1>
+    <p class="hero-description">
+      Descubre un mundo de entretenimiento como nunca antes lo imaginaste. En RepelisPlus+, encontrarás una selección
+      curada de las mejores películas y series para disfrutar en la comodidad de tu hogar.
+      Nuestra misión es ofrecerte una experiencia única, llena de emociones, aventuras, y momentos inolvidables.
+      Únete a nuestra comunidad y accede a contenido de alta calidad, recomendaciones personalizadas y un servicio
+      pensado para ti.
+      ¿Por qué elegirnos? Porque nos preocupamos por brindarte lo mejor. Con una interfaz intuitiva y una biblioteca en
+      constante crecimiento, RepelisPlus+ se convierte en el compañero ideal para tus maratones cinematográficos.
+    </p>
+    <p class="hero-description">
+      Así que, si buscas las últimas novedades, los clásicos más icónicos o simplemente algo diferente para relajarte,
+      estás en el lugar indicado. ¡Deja que comience la diversión y explora lo que tenemos para ti!
+    </p>
+    <a href="{{ url_for('home.catalogo') }}" class="btn-cta">Comencemos con RepelisPlus+</a>
+  </div>
 </div>
 {% endblock %}

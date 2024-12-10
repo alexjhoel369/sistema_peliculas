@@ -42,21 +42,6 @@ html, body {
   flex:1;
 }
 
-footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #000;
-  color: #fff;
-  position: relative;
-  width: 100%;
-  margin-top: auto;
-}
-
-footer p {
-  margin: 0;
-  font-size: 0.9rem;
-}
-
 button,
 a.btn {
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -248,22 +233,6 @@ p {
   width: 88%;
 }  
 /*=====================*/
-/* Efecto LED en los enlaces de navegación */
-.navbar-nav .nav-link {
-  color: #fff;
-  font-size: 1rem;
-  font-weight: bold;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5);
-  transition: all 0.3s ease-in-out;
-}
-
-.navbar-nav .nav-link:hover {
-  color: #f39c12; /* Cambia a un tono cálido */
-  font-size: 1.2rem; /* Agranda el texto */
-  text-shadow: 0 0 10px #f39c12, 0 0 20px #f1c40f, 0 0 30px #f39c12; /* Efecto de brillo */
-  transform: scale(1.1); /* Aumenta ligeramente el tamaño */
-}
-
 /* Efecto especial para enlaces activos */
 .navbar-nav .nav-link.active {
   color: #a72839; /* Color diferente para el enlace activo */
@@ -308,8 +277,8 @@ p {
 
 .search-bar .btn {
   border-radius: 0 25px 25px 0;
-  background-color: #380707b2;
-  border: 2px solid #641010;
+  background-color: #ec1b1bb2;
+  border: 2px solid #d18383;
   color: white;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -318,40 +287,6 @@ p {
   background-color: #5a2121;
   border-color: #5a2626;
   box-shadow: 0 0 10px rgba(142, 68, 173, 0.5);
-}
-
-
-/*===========DISEÑO DE FONDO DE LA PAGINA==========*/
-/* Fondo animado para toda la página */
-body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(270deg, #140101, #2b0101, #1d0101, #180101, #070000);
-  background-size: 400% 400%;
-  animation: fondoMovimiento 15s ease infinite;
-  font-family: 'Poppins', sans-serif;
-  color: #fff;
-}
-
-/* Animación de gradiente */
-@keyframes fondoMovimiento {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Asegurarse de que el contenido sea legible */
-.container {
-  background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 /*==========INTEGRANDO ESTILO DE PIE DE PAGINA==========*/
@@ -374,17 +309,13 @@ body {
 
 .social-circle {
   display: inline-block;
-  width: 40px;
-  height: 40px;
-  margin: 0 5px;
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  background-position: center;
   border-radius: 50%;
-  background-color: #333;
-  color: #fff;
-  font-size: 18px;
-  line-height: 40px;
-  text-align: center;
-  transition: 0.3s;
 }
+
 
 .social-circle:hover {
   background-color: #ff9a9e; /* Gradiente suave */
@@ -441,12 +372,13 @@ body {
   align-items: center;
   text-align: center;
   padding: 50px 20px;
-  min-height: 100vh;
+  min-height: 50vh;
+  height: auto;
   color: #ffffff9c;
 }
 
 .hero-content {
-  max-width: 800px;
+  max-width: 900px;
 }
 
 .hero-title {

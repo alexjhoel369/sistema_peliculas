@@ -31,7 +31,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdownGenero" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
-              Géneros
+              GENERO
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownGenero">
               {% for genero in generos %}
@@ -60,15 +60,16 @@
       <div class="social-links">
         <div class="social-links">
           <a href="https://www.facebook.com" target="_blank" class="social-circle" title="Facebook"
-            style="background-image: url('static/images/facebook.png');"></a>
+            style="background-image: url('{{ url_for('static', filename='images/facebook.png') }}');"></a>
           <a href="https://www.instagram.com" target="_blank" class="social-circle" title="Instagram"
-            style="background-image: url('static/images/instagram.png');"></a>
+            style="background-image: url('{{ url_for('static', filename='images/instagram.png') }}');"></a>
           <a href="https://www.tiktok.com" target="_blank" class="social-circle" title="TikTok"
-            style="background-image: url('static/images/tiktok.png');"></a>
+            style="background-image: url('{{ url_for('static', filename='images/tiktok.png') }}');"></a>
           <a href="https://www.youtube.com" target="_blank" class="social-circle" title="YouTube"
-            style="background-image: url('static/images/youtube.png');"></a>
+            style="background-image: url('{{ url_for('static', filename='images/youtube.png') }}');"></a>
           <a href="https://twitter.com" target="_blank" class="social-circle" title="Twitter"
-            style="background-image: url('static/images/twitter.png');"></a>
+            style="background-image: url('{{ url_for('static', filename='images/twitter.png') }}');"></a>
+
         </div>
       </div>
     </div>
