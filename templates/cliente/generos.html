@@ -14,7 +14,7 @@
                 <select class="form-select bg-dark text-light border-light" id="genero_id" name="genero_id">
                     <option value="">-- Seleccionar --</option>
                     {% for genero in generos %}
-                    <option value="{{ genero.id }}">{{ genero.genero }}</option>
+                    <option value="{{ genero.id }}" {% if genero.id == genero_id %}selected{% endif %}>{{ genero.genero }}</option>
                     {% endfor %}
                 </select>
             </div>

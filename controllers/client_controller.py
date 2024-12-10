@@ -51,3 +51,8 @@ def generos():
         peliculas=peliculas,
         genero_id=genero_id
     )
+
+@client_bp.app_context_processor
+def inject_generos():
+    generos = Genero.query.all()
+    return {'generos': generos}
